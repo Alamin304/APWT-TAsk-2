@@ -17,7 +17,11 @@ use App\Http\controllers\UsersController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get("/login",[UsersController::class,'login']);
-Route::get("/registration",[UsersController::class,'registration']);
+Route::post("/login",[UsersController::class,'login']);
+Route::view("login","login");
+Route::post("/registration",[UsersController::class,'registration']);
+Route::view("registration","registration");
+Route::get("/contact",[UsersController::class,'Contact']);
+Route::view("/contact","Contact");
 
 

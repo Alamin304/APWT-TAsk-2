@@ -10,22 +10,26 @@ class UsersController extends Controller
     public function login(Request $req)
     {
         $req->validate([
-            'username'=>'require',
-            'userpassword'=>'require'
+            'username'=>'required',
+            'userpassword'=>'required'
         ]);
-        return view ("login");
+        return $req->input();
        
     }
     public function registration(Request $req)
     {
         $req->validate([
-            'userfirstname'=>'require',
-            'username'=>'require',
-            'useremail'=>'require',
-            'userpassword'=>'require',
-            'reuserpassword'=>'require'
+            'userfirstname'=>'required | max:10',
+            'username'=>'required | max:10',
+            'useremail'=>'required',
+            'userpassword'=>'required | min:5',
+            'reuserpassword'=>'required | min:5'
 
         ]);
-        return view("registration");
+        return $req->inpur();
+    }
+    public function Contact()
+    {
+        return("contact");
     }
 }
